@@ -1,0 +1,121 @@
+<!doctype html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if IE 9]>    <html class="no-js ie9" lang="en"> <![endif]-->
+<!-- Consider adding an manifest.appcache: h5bp.com/d/Offline -->
+<!--[if gt IE 9]><!--> <html class="no-js" lang="en" itemscope itemtype="http://schema.org/Product"> <!--<![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Tokyometroapp by 2014Camp-pro</title>
+
+    <link rel="stylesheet" href="../stylesheets/styles.css">
+    <link rel="stylesheet" href="../stylesheets/pygment_trac.css">
+    <script src="../javascripts/scale.fix.js"></script>
+  <!-- Grab Google CDN's jQuery, fall back to local if offline -->
+  <!-- 2.0 for modern browsers, 1.10 for .oldie -->
+  <script>
+  var oldieCheck = Boolean(document.getElementsByTagName('html')[0].className.match(/\soldie\s/g));
+  if(!oldieCheck) {
+  document.write('<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"><\/script>');
+  } else {
+  document.write('<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"><\/script>');
+  }
+  </script>
+  <script>
+  if(!window.jQuery) {
+  if(!oldieCheck) {
+    document.write('<script src="js/libs/jquery-2.0.2.min.js"><\/script>');
+  } else {
+    document.write('<script src="js/libs/jquery-1.10.1.min.js"><\/script>');
+  }
+  }
+  </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+	<script type="text/javascript">
+		var consumerKey = "2dacc8cc50acbdd920a49a3d9a91a6bfd5e13716b02c1eee8ea154fea8a1ea81";
+		var MetroApiUtil = {
+			accessKey : consumerKey,
+    		base : "https://api.tokyometroapp.jp/api/v2/",
+    		responseType : { 
+    			"情報" : "datapoints?",
+    			"位置" : "places?" },
+    		apiType : {
+	    		"列車" : {id:"odpt:Train", ava:["情報"]},
+    			"運行" : {id:"odpt:TrainInformation", ava:["情報"]},
+   		 		"時刻表" : {id:"odpt:StationTimetable",ava:["情報"]},
+    			"施設" : {id:"odpt:StationFacility",ava:["情報"]},
+	   	 		"乗降人数" : {id:"odpt:PassengerSurvey",ava:["情報"]},
+    			"運賃" : {id:"odpt:RailwayFare",ava:["情報"]},
+    			"出入り口" : {id:"ug:Poi", ava:["情報","位置"]},
+    			"駅位置" : {id:"mlit:Station", ava:["位置"]},
+    			"路線位置" : {id:"mlit:Railway", ava:["位置"]},
+    			"駅情報" : {id:"odpt:Station", ava:["情報","位置"]},
+    			"路線情報" : {id:"odpt:Railway", ava:["情報","位置"]}
+    		},
+    		"get駅情報URL" : function() {
+    			return this.base+this.responseType["情報"]+"rdf:type="+this.apiType["駅情報"].id + "&acl:consumerKey=" + this.accessKey;
+    		},
+    	};
+    </script>
+    <style type="text/css">
+    	div.stations {
+    	}
+    	div.stations ul {
+    		border :none;
+    		margin: 0;
+    		padding:0;
+    		width : 360px;
+    	}
+    	div.stations li {
+    		border :none;
+    		margin: 0;
+    		padding:0;
+    		float: left;
+    		width : 120px;
+			height : 14px;
+			vertical-align : center;
+			line-height : 14px;
+			text-align:center;
+			list-style: none;
+    	}
+    	
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+      </header>
+      <section>
+        <h3>
+<a name="%E6%9D%B1%E4%BA%AC%E3%83%A1%E3%83%88%E3%83%AD-%E3%82%AA%E3%83%BC%E3%83%97%E3%83%B3%E3%83%87%E3%83%BC%E3%82%BF%E6%B4%BB%E7%94%A8%E3%82%B3%E3%83%B3%E3%83%86%E3%82%B9%E3%83%88-pro%E3%83%81%E3%83%BC%E3%83%A0-%E9%96%8B%E7%99%BA%E3%82%B5%E3%82%A4%E3%83%88" class="anchor" href="#%E6%9D%B1%E4%BA%AC%E3%83%A1%E3%83%88%E3%83%AD-%E3%82%AA%E3%83%BC%E3%83%97%E3%83%B3%E3%83%87%E3%83%BC%E3%82%BF%E6%B4%BB%E7%94%A8%E3%82%B3%E3%83%B3%E3%83%86%E3%82%B9%E3%83%88-pro%E3%83%81%E3%83%BC%E3%83%A0-%E9%96%8B%E7%99%BA%E3%82%B5%E3%82%A4%E3%83%88"><span class="octicon octicon-link"></span></a>駅名取得サンプル.</h3>
+		<div class="stations">
+		  <script type="text/javascript">
+		  $.getJSON(MetroApiUtil.get駅情報URL(), function(json){
+			  for(var i = 0;i++;json.length){
+			  	document.write("<ul>");
+			  	document.write("<li>駅名："+ json[i]["dc:Title"] + "</li>");
+			  	document.write("<li>コード"+ json[i]["odpt:stationCode"] + "</li>");
+			  	document.write("<li>路線名："+ json[i]["odpt:railway"] + "</li>");
+			  	document.write("</ul>");
+			  }
+		  });
+		  </script>
+		  </div>
+      </section>
+    </div>
+    <footer>
+      <p>Project maintained by <a href="https://github.com/2014Camp-pro">2014Camp-pro</a></p>
+      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
+    </footer>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
