@@ -67,20 +67,18 @@
     </script>
     <style type="text/css">
         section {
-    		position : relative;
   			min-height: 200px; 
     		height: auto !important;  /* IE6対策：この2行で */
   			height: 200px;     	        /* IE6対策：擬似的にmin-heightと同じことをさせてる */
   
         }
     	div.stations {
-    		width : 610px;
     	}
     	div.stations ul {
     		border :none;
     		margin: 0;
     		padding:0;
-    		width : 610px;
+    		width : 710px;
     	}
     	div.stations li {
     		border :none;
@@ -95,10 +93,10 @@
     	}
     	
     	li.col1 {
-    		width : 150px;
+    		width : 200px;
     	}
     	li.col2 {
-    		width : 50px;
+    		width : 100px;
     	}
     	li.col3 {
     		width : 400px;
@@ -115,6 +113,14 @@
 <a name="%E6%9D%B1%E4%BA%AC%E3%83%A1%E3%83%88%E3%83%AD-%E3%82%AA%E3%83%BC%E3%83%97%E3%83%B3%E3%83%87%E3%83%BC%E3%82%BF%E6%B4%BB%E7%94%A8%E3%82%B3%E3%83%B3%E3%83%86%E3%82%B9%E3%83%88-pro%E3%83%81%E3%83%BC%E3%83%A0-%E9%96%8B%E7%99%BA%E3%82%B5%E3%82%A4%E3%83%88" class="anchor" href="#%E6%9D%B1%E4%BA%AC%E3%83%A1%E3%83%88%E3%83%AD-%E3%82%AA%E3%83%BC%E3%83%97%E3%83%B3%E3%83%87%E3%83%BC%E3%82%BF%E6%B4%BB%E7%94%A8%E3%82%B3%E3%83%B3%E3%83%86%E3%82%B9%E3%83%88-pro%E3%83%81%E3%83%BC%E3%83%A0-%E9%96%8B%E7%99%BA%E3%82%B5%E3%82%A4%E3%83%88"><span class="octicon octicon-link"></span></a>駅名取得サンプル.</h3>
 		<div class="stations">
 			クライアントサイドでは取得できないってことでいったんプロキシ的なのをnode.jsでかましてます。
+		  </div>
+      </section>
+    </div>
+    <footer>
+      <p>Project maintained by <a href="https://github.com/2014Camp-pro">2014Camp-pro</a></p>
+      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
+    </footer>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
 		  <script type="text/javascript">
 		  $.getJSON(MetroApiUtil.get駅情報URL(), function(jsonld){
 		  	var json = {};
@@ -136,14 +142,6 @@
 			  }
 		  });
 		  </script>
-		  </div>
-      </section>
-    </div>
-    <footer>
-      <p>Project maintained by <a href="https://github.com/2014Camp-pro">2014Camp-pro</a></p>
-      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
-    </footer>
-    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
     
   </body>
 </html>
