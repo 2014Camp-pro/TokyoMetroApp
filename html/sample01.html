@@ -62,7 +62,7 @@
     			"路線情報" : {id:"odpt:Railway", ava:["情報","位置"]}
     		},
     		"get駅情報URL" : function() {
-    			return this.proxy + encodeURIComponent(this.base+this.responseType["情報"]+"rdf:type="+this.apiType["駅情報"].id + "&acl:consumerKey=" + this.accessKey);
+    			return this.proxy + encodeURIComponent(this.base+this.responseType["情報"]+"rdf:type="+this.apiType["駅情報"].id);
     		},
     	};
     </script>
