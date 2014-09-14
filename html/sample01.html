@@ -84,7 +84,6 @@
     		margin: 0;
     		padding:0;
     		float: left;
-    		width : 200px;
 			height : 14px;
 			vertical-align : center;
 			line-height : 14px;
@@ -92,12 +91,19 @@
 			list-style: none;
     	}
     	
+    	li.col1, li.col2 {
+    		width : 100px;
+    	}
+    	li.col3 {
+    		width : 400px;
+    	}
+    	
     </style>
   </head>
   <body>
     <div class="wrapper">
       <header>
-      </header>"
+      </header>
       <section>
         <h3>
 <a name="%E6%9D%B1%E4%BA%AC%E3%83%A1%E3%83%88%E3%83%AD-%E3%82%AA%E3%83%BC%E3%83%97%E3%83%B3%E3%83%87%E3%83%BC%E3%82%BF%E6%B4%BB%E7%94%A8%E3%82%B3%E3%83%B3%E3%83%86%E3%82%B9%E3%83%88-pro%E3%83%81%E3%83%BC%E3%83%A0-%E9%96%8B%E7%99%BA%E3%82%B5%E3%82%A4%E3%83%88" class="anchor" href="#%E6%9D%B1%E4%BA%AC%E3%83%A1%E3%83%88%E3%83%AD-%E3%82%AA%E3%83%BC%E3%83%97%E3%83%B3%E3%83%87%E3%83%BC%E3%82%BF%E6%B4%BB%E7%94%A8%E3%82%B3%E3%83%B3%E3%83%86%E3%82%B9%E3%83%88-pro%E3%83%81%E3%83%BC%E3%83%A0-%E9%96%8B%E7%99%BA%E3%82%B5%E3%82%A4%E3%83%88"><span class="octicon octicon-link"></span></a>駅名取得サンプル.</h3>
@@ -117,9 +123,9 @@
 			  	var item = json.res[i];
 			  	$("div.stations")
 			  		.append("<ul>"
-			  			+ "<li>駅名："+ item["dc:title"] + "</li>"
-			  			+ "<li>コード："+ item["odpt:stationCode"] + "</li>"
-			  			+ "<li>路線名："+ item["odpt:railway"] + "</li>"
+			  			+ "<li class=\"col1\">駅名："+ item["dc:title"] + "</li>"
+			  			+ "<li class=\"col2\">コード："+ item["odpt:stationCode"] + "</li>"
+			  			+ "<li class=\"col3\">路線名："+ item["odpt:railway"] + "</li>"
 			  			+ "</ul>");
 			  }
 		  });
