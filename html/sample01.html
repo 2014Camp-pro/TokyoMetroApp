@@ -99,12 +99,21 @@
 		<div class="stations">
 			クライアントサイドでは取得できないってことでいったんプロキシ的なのをnode.jsでかましてます。
 		  <script type="text/javascript">
-		  $.getJSON(MetroApiUtil.get駅情報URL(), function(json){
-			  for(var i = 0;i++;json.length){
+		  $.getJSON(MetroApiUtil.get駅情報URL(), function(jsonld){
+		  	var json = {};
+		  	if(typeof(jsonld)=='string') {
+		  		json = JSON.parse("{res:"+jsonld+"}");
+		  	}
+		  	else {
+		  		json = {res: jsonld };
+		  	}
+		  
+			  for(var i = 0;i<json.res.length;i++){
+			  	var item = json.res[i];
 			  	document.write("<ul>");
-			  	document.write("<li>駅名："+ json[i]["dc:Title"] + "</li>");
-			  	document.write("<li>コード"+ json[i]["odpt:stationCode"] + "</li>");
-			  	document.write("<li>路線名："+ json[i]["odpt:railway"] + "</li>");
+			  	document.write("<li>駅名："+ item["dc:Title"] + "</li>");
+			  	document.write("<li>コード"+ item["odpt:stationCode"] + "</li>");
+			  	document.write("<li>路線名："+ item["odpt:railway"] + "</li>");
 			  	document.write("</ul>");
 			  }
 		  });
