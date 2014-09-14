@@ -111,11 +111,11 @@
 			  for(var i = 0;i<json.res.length;i++){
 			  	var item = json.res[i];
 			  	$("div.stations")
-			  		.append("<ul>")
-			  		.append("<li>駅名："+ item["dc:title"] + "</li>")
-			  		.append("<li>コード"+ item["odpt:stationCode"] + "</li>")
-			  		.append("<li>路線名："+ item["odpt:railway"] + "</li>")
-			  		.append("</ul>");
+			  		.append("<ul>"
+			  			+ "<li>駅名："+ item["dc:title"] + "</li>"
+			  			+ "<li>コード："+ item["odpt:stationCode"] + "</li>"
+			  			+ "<li>路線名："+ item["odpt:railway"] + "</li>"
+			  			+ "</ul>");
 			  }
 		  });
 		  </script>
