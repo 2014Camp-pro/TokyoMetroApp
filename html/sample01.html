@@ -65,44 +65,6 @@
     		},
     	};
     </script>
-    <style type="text/css">
-        section {
-  			min-height: 200px; 
-    		height: auto !important;  /* IE6対策：この2行で */
-  			height: 200px;     	        /* IE6対策：擬似的にmin-heightと同じことをさせてる */
-  
-        }
-    	div.stations {
-    	}
-    	div.stations ul {
-    		border :none;
-    		margin: 0;
-    		padding:0;
-    		width : 710px;
-    	}
-    	div.stations li {
-    		border :none;
-    		margin: 0;
-    		padding:0;
-    		float: left;
-			height : 16px;
-			vertical-align : center;
-			line-height : 16px;
-			text-align: left;
-			list-style: none;
-    	}
-    	
-    	li.col1 {
-    		width : 200px;
-    	}
-    	li.col2 {
-    		width : 100px;
-    	}
-    	li.col3 {
-    		width : 400px;
-    	}
-    	
-    </style>
   </head>
   <body>
     <div class="wrapper">
@@ -135,9 +97,9 @@
 			  	var item = json.res[i];
 			  	$("div.stations")
 			  		.append("<ul>"
-			  			+ "<li class=\"col1\">駅名："+ item["dc:title"] + "</li>"
-			  			+ "<li class=\"col2\">コード："+ item["odpt:stationCode"] + "</li>"
-			  			+ "<li class=\"col3\">路線名："+ item["odpt:railway"] + "</li>"
+			  			+ "<li>駅名："+ item["dc:title"] + "</li>"
+			  			+ "<li>コード："+ item["odpt:stationCode"] + "</li>"
+			  			+ "<li>路線名："+ item["odpt:railway"] + "</li>"
 			  			+ "</ul>");
 			  }
 		  });
